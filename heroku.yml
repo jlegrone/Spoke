@@ -1,6 +1,11 @@
 setup:
+  addons:
+  - plan: heroku-postgresql
+    as: DATABASE
   config:
+    SUPPRESS_SELF_INVITE: ''
     JOBS_SAME_PROCESS: '1'
+    DB_TYPE: pg
 build:
   docker:
     web: Dockerfile
