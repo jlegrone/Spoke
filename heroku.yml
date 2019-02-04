@@ -6,13 +6,14 @@ setup:
     DB_TYPE: pg
     SUPPRESS_SELF_INVITE: ''
     JOBS_SAME_PROCESS: '1'
-    AUTH0_DOMAIN: change_me.auth0.com
-    AUTH0_CLIENT_ID: change_me
-    AUTH0_CLIENT_SECRET: change_me
-    TWILIO_API_KEY: change_me
-    TWILIO_APPLICATION_SID: change_me
-    TWILIO_AUTH_TOKEN: change_me
-    TWILIO_MESSAGE_SERVICE_SID: change_me
+    AUTH0_DOMAIN: changeme.auth0.com
+    AUTH0_CLIENT_ID: changeme
+    AUTH0_CLIENT_SECRET: changeme
+    TWILIO_API_KEY: changeme
+    TWILIO_APPLICATION_SID: changeme
+    TWILIO_AUTH_TOKEN: changeme
+    TWILIO_MESSAGE_SERVICE_SID: changeme
+    SESSION_SECRET: changeme
 build:
   docker:
     web: Dockerfile

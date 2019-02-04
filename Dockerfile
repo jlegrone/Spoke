@@ -23,7 +23,9 @@ COPY --from=builder /spoke/build build
 COPY --from=builder /spoke/node_modules node_modules
 COPY --from=builder /spoke/package.json /spoke/yarn.lock ./
 ENV NODE_ENV=production \
-    PORT=3000
+    PORT=3000 \
+    ASSETS_DIR=./build/client/assets \
+    ASSETS_MAP_FILE=assets.json
 
 # Switch to non-root user https://github.com/nodejs/docker-node/blob/d4d52ac41b1f922242d3053665b00336a50a50b3/docs/BestPractices.md#non-root-user
 USER node
