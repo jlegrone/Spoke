@@ -3,7 +3,6 @@ setup:
   - plan: heroku-postgresql
     as: DATABASE
   config:
-    DB_TYPE: pg
     SUPPRESS_SELF_INVITE: ''
     JOBS_SAME_PROCESS: '1'
     AUTH0_DOMAIN: changeme.auth0.com

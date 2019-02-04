@@ -3,9 +3,7 @@
   "description": "Mass peer to peer texting tool",
   "repository":"https://github.com/moveonorg/spoke",
   "success_url":"/",
-  "buildpacks": [
-      { "url": "https://github.com/heroku/heroku-buildpack-nodejs"}
-  ],
+  "stack": "container",
   "env": {
     "SUPPRESS_SELF_INVITE": {
       "description": "Should anonymous visitors be able to create new organizations from the home page? You will probably want to start the app with this off, and then after creating your own organization, come back here and set it to 1",
