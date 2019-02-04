@@ -2,17 +2,6 @@ setup:
   addons:
   - plan: heroku-postgresql
     as: DATABASE
-  config:
-    SUPPRESS_SELF_INVITE: ''
-    JOBS_SAME_PROCESS: '1'
-    AUTH0_DOMAIN: changeme.auth0.com
-    AUTH0_CLIENT_ID: changeme
-    AUTH0_CLIENT_SECRET: changeme
-    TWILIO_API_KEY: changeme
-    TWILIO_APPLICATION_SID: changeme
-    TWILIO_AUTH_TOKEN: changeme
-    TWILIO_MESSAGE_SERVICE_SID: changeme
-    SESSION_SECRET: changeme
 build:
   docker:
     web: Dockerfile
