@@ -12,13 +12,11 @@ const plugins = [
   }),
   new webpack.ContextReplacementPlugin(
     /[\/\\]node_modules[\/\\]timezonecomplete[\/\\]/,
-    path.resolve("tz-database-context"),
-    {
-      "tzdata": "tzdata",
-    }
+    path.resolve('tz-database-context'),
+    { tzdata: 'tzdata' }
   )
 ]
-const jsxLoaders = [{loader: 'babel-loader'}]
+const jsxLoaders = [{ loader: 'babel-loader' }]
 const assetsDir = process.env.ASSETS_DIR
 const assetMapFile = process.env.ASSETS_MAP_FILE
 const outputFile = DEBUG ? '[name].js' : '[name].[chunkhash].js'
@@ -35,7 +33,7 @@ if (!DEBUG) {
   }))
 } else {
   plugins.push(new webpack.HotModuleReplacementPlugin())
-  jsxLoaders.unshift({loader: 'react-hot-loader'})
+  jsxLoaders.unshift({ loader: 'react-hot-loader' })
 }
 
 const config = {
@@ -47,8 +45,8 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'}
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
         ]
       },
       {
