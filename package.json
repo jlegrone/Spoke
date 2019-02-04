@@ -162,6 +162,7 @@
     "jest": "^22.1.4",
     "json2csv": "^3.6.2",
     "mockdate": "^2.0.2",
+    "multi-env": "^1.0.0",
     "nodemon": "^1.9.2",
     "prettier": "1.13.6",
     "react-hot-loader": "^1.3.0",
@@ -173,5 +174,13 @@
     "sqlite3": "^3.1.9",
     "wait-on": "^2.1.0",
     "webpack-dev-server": "^2.9.4"
+  },
+  "config": {
+    "multi-env": {
+      "files": [
+        ".env",
+        ".env.example"
+      ]
+    }
   }
 }

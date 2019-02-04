@@ -3296,6 +3296,11 @@ dotenv@^2.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
   integrity sha1-vXWcNXqqcDZeAclrewvsCKbg2Uk=
 
+dotenv@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
+  integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
+
 double-ended-queue@^2.1.0-0:
   version "2.1.0-0"
   resolved "https://registry.yarnpkg.com/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz#103d3527fd31528f40188130c841efdd78264e5c"
@@ -7713,6 +7718,14 @@ mu2@~0.5.20:
   resolved "https://registry.yarnpkg.com/mu2/-/mu2-0.5.21.tgz#888a8f0fd90eb1cfda9db81476f6e199cc9e58d3"
   integrity sha1-iIqPD9kOsc/anbgUdvbhmcyeWNM=
 
+multi-env@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/multi-env/-/multi-env-1.0.0.tgz#4d6d7573cc1195fa74f45b0692c6a6bdbe851ad5"
+  integrity sha512-E614SiCugUK3cJtJSsW/9OLXZlhUkCLAqC0JshVWZH1xMFAXGJtuxjx/QA1mnFD9OF7nP6Hace06WvPJFxmX5w==
+  dependencies:
+    dotenv "^6.2.0"
+    pkg-up "^2.0.0"
+
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
@@ -8750,6 +8763,13 @@ pkg-up@^1.0.0:
   integrity sha1-Pgj7RhUlxEIWJKM7n35tCvWwWiY=
   dependencies:
     find-up "^1.0.0"
+
+pkg-up@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/pkg-up/-/pkg-up-2.0.0.tgz#c819ac728059a461cab1c3889a2be3c49a004d7f"
+  integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
+  dependencies:
+    find-up "^2.1.0"
 
 pluralize@^1.2.1:
   version "1.2.1"
