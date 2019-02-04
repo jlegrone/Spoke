@@ -162,6 +162,9 @@ app.get('/graphiql', graphiqlExpress({
   endpointURL: '/graphql'
 }))
 
+if (process.env.ASSETS_DIR) {
+  app.use('/assets', express.static(process.env.ASSETS_DIR))
+}
 
 // This middleware should be last. Return the React app only if no other route is hit.
 app.use(appRenderer)
