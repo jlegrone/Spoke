@@ -3,9 +3,16 @@ setup:
   - plan: heroku-postgresql
     as: DATABASE
   config:
+    DB_TYPE: pg
     SUPPRESS_SELF_INVITE: ''
     JOBS_SAME_PROCESS: '1'
-    DB_TYPE: pg
+    AUTH0_DOMAIN: change_me.auth0.com
+    AUTH0_CLIENT_ID: change_me
+    AUTH0_CLIENT_SECRET: change_me
+    TWILIO_API_KEY: change_me
+    TWILIO_APPLICATION_SID: change_me
+    TWILIO_AUTH_TOKEN: change_me
+    TWILIO_MESSAGE_SERVICE_SID: change_me
 build:
   docker:
     web: Dockerfile
