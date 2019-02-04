@@ -27,9 +27,8 @@
     },
 
     "BASE_URL": {
-      "description": "based on your herokuapp name or domain name",
-      "required": true,
-      "value": "https://$HEROKU_APP_NAME.herokuapp.com"
+      "description": "Set this if you are using a custom domain",
+      "required": false
     },
 
     "SESSION_SECRET": {
