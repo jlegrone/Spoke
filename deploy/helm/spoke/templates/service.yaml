@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "spoke.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "spoke.name" . }}
+    helm.sh/chart: {{ include "spoke.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "spoke.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

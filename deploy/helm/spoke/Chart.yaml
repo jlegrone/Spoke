@@ -1,0 +1,7 @@
+apiVersion: v1
+description: Mass-contact text/SMS distribution tool
+name: spoke
+version: 0.1.0
+homepage: https://github.com/MoveOnOrg/Spoke
+sources:
+- https://github.com/MoveOnOrg/Spoke/tree/main/deploy/helm/spoke
