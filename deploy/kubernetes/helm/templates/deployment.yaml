@@ -18,8 +18,8 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "spoke.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
-      annotations:
 {{- if not .Values.env.existingSecretName }}
+      annotations:
         checksum/spoke: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
 {{- end }}
     spec:
@@ -30,7 +30,7 @@ spec:
           ports:
             - name: http
               containerPort: {{ .Values.deployment.port }}
-              # protocol: TCP
+              protocol: TCP
           env:
           - name: PORT
             value: {{ .Values.deployment.port | quote }}
@@ -83,4 +83,4 @@ spec:
     {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}
-    {{- end }}
+    {{- end -}}
