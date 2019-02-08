@@ -1,0 +1,2 @@
+helm-extra-args: --timeout 800
+charts: deploy/kubernetes/helm

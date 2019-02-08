@@ -1,0 +1,21 @@
+version: 2.1
+jobs:
+  lint-charts:
+    docker:
+      - image: quay.io/helmpack/chart-testing:v2.2.0
+    steps:
+      - checkout
+      - run:
+          command: ct lint --config test/ct.yaml
+  install-charts:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          command: test/e2e-kind.sh
+workflows:
+  version: 2
+  untagged-build:
+    jobs:
+      - lint-charts
+      - install-charts
