@@ -21,7 +21,6 @@ spec:
       annotations:
 {{- if not .Values.env.existingSecretName }}
         checksum/spoke: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
-        # checksum/pg: {{ include (print $.Template.BasePath "/charts/postgresql/templates/secret.yaml") . | sha256sum }}
 {{- end }}
     spec:
       containers:

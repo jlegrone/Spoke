@@ -1,0 +1,10 @@
+fullnameOverride: spoke
+
+env:
+  existingSecretName: spoke
+
+ingress:
+  enabled: true
+
+postgresql:
+  enabled: false
