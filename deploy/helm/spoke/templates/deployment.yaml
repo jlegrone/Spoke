@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.autoscaler.minReplicas }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "spoke.name" . }}
@@ -18,15 +18,33 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "spoke.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+      annotations:
+{{- if not .Values.env.existingSecretName }}
+        checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+{{- end }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: spoke
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.deployment.port }}
               protocol: TCP
+          env:
+{{- range $key, $val := .Values.env.vars }}
+          - name: {{ $key | quote }}
+            value: {{ $val | quote }}
+{{- end }}
+{{- if .Values.env.existingSecretName }}
+          envFrom:
+          - secretRef:
+              name: {{ .Values.env.existingSecretName }}
+{{- else }}
+          envFrom:
+          - secretRef:
+              name: {{ include "spoke.fullname" . }}-env
+{{- end }}
           livenessProbe:
             httpGet:
               path: /

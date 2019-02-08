@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "spoke.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "spoke.name" . }}
+    helm.sh/chart: {{ include "spoke.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  minReplicas: {{ .Values.autoscaler.minReplicas }}
+  maxReplicas: {{ .Values.autoscaler.maxReplicas }}
+  targetCPUUtilizationPercentage: {{ .Values.autoscaler.targetCPUUtilizationPercentage }}
+  scaleTargetRef:
+    kind: Deployment
+    name: {{ include "spoke.fullname" . }}

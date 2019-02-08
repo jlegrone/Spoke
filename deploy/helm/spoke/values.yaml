@@ -2,11 +2,21 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
+env:
+  # existingSecretName:
+  secretVars:
+    AUTH0_CLIENT_ID: foo
+    AUTH0_CLIENT_SECRET: bar
+  vars:
+    NODE_ENV: production
+    SUPPRESS_SELF_INVITE: ''
+
+deployment:
+  port: 3000
 
 image:
   repository: spokeapp/spoke
-  tag: stable
+  tag: node-8-alpha
   pullPolicy: IfNotPresent
 
 nameOverride: ""
@@ -23,11 +33,16 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
+    - spoke.example.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
-  #      - chart-example.local
+  #      - spoke.example.com
+
+autoscaler:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
