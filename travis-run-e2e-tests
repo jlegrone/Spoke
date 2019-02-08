@@ -10,3 +10,5 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   # Run end to end tests
   npm run test-e2e --saucelabs
 fi
+
+./test/e2e-kind.sh
