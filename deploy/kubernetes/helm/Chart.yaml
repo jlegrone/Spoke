@@ -5,3 +5,4 @@ version: 0.1.0
 homepage: https://github.com/MoveOnOrg/Spoke
 sources:
 - https://github.com/MoveOnOrg/Spoke/tree/main/deploy/helm/spoke
+engine: gotpl

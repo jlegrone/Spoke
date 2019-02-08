@@ -4,6 +4,8 @@ npm-debug.log
 .DS_Store
 rethinkdb_data
 .env
+secret.env
+config.env
 __test__/test_data/*
 production-env.json
 claudia.json
@@ -20,3 +22,4 @@ coverage/
 *.vscode
 *.rdb
 package-lock.json
+**/charts/*.tgz

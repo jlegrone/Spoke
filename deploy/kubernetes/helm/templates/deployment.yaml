@@ -20,7 +20,8 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
       annotations:
 {{- if not .Values.env.existingSecretName }}
-        checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+        checksum/spoke: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+        # checksum/pg: {{ include (print $.Template.BasePath "/charts/postgresql/templates/secret.yaml") . | sha256sum }}
 {{- end }}
     spec:
       containers:
@@ -30,8 +31,25 @@ spec:
           ports:
             - name: http
               containerPort: {{ .Values.deployment.port }}
-              protocol: TCP
+              # protocol: TCP
           env:
+          - name: PORT
+            value: {{ .Values.deployment.port | quote }}
+{{- if .Values.postgresql.enabled }}
+          - name: DB_TYPE
+            value: pg
+          - name: DB_NAME
+            value: {{ .Values.postgresql.postgresqlDatabase | quote }}
+          - name: DB_USER
+            value: {{ .Values.postgresql.postgresqlUsername | quote }}
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "spoke.postgresql.secretName" . }}
+                key: postgresql-password
+          - name: DB_HOST
+            value: "{{ template "spoke.postgresql.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local"
+{{- end }}
 {{- range $key, $val := .Values.env.vars }}
           - name: {{ $key | quote }}
             value: {{ $val | quote }}

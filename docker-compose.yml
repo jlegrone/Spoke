@@ -17,8 +17,6 @@ services:
   app:
     build:
       context: .
-      args:
-        SPOKE_VERSION: 1.4.1
     depends_on:
       - postgres
       - redis
@@ -31,7 +29,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./.env:/Spoke/.env
+      - ./.env:/Spoke/secret.env
 volumes:
   postgres:
     external: false

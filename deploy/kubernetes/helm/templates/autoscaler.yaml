@@ -12,5 +12,6 @@ spec:
   maxReplicas: {{ .Values.autoscaler.maxReplicas }}
   targetCPUUtilizationPercentage: {{ .Values.autoscaler.targetCPUUtilizationPercentage }}
   scaleTargetRef:
+    apiVersion: apps/v1beta2
     kind: Deployment
     name: {{ include "spoke.fullname" . }}
