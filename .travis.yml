@@ -16,5 +16,6 @@ before_script:
 - psql -c 'GRANT ALL PRIVILEGES ON DATABASE spoke_test TO spoke_test;' -U postgres
 - chmod +x ./travis-run-e2e-tests
 script:
+- commitlint-travis
 - npm run test
 - ./travis-run-e2e-tests
