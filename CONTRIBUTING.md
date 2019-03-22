@@ -41,6 +41,29 @@ Generally, the first steps are:
 * Please try adding a test, at least for backend changes (We have an [open issue to wire up frontend React testing](https://github.com/MoveOnOrg/Spoke/issues/292))
 * Before committing changes, please run `npm run lint` to standardize formatting
 
+### Commit Message Guidelines
+
+We follow the [conventional commits](https://www.conventionalcommits.org) specification for formatting commit messages. This allows us to automatically generate informative release notes and document breaking changes as they happen.
+
+While commit messages can still be written by hand, a package script is also available for generating commit messages. To use it, stage the changes you wish to commit as you normally would, eg:
+
+```cli
+git add .
+```
+
+Then run [commitizen](https://github.com/commitizen/cz-cli):
+
+```cli
+yarn commit
+```
+
+Follow the instructions from there and you should end up with a valid commit message!
+
+> **Hint**: If you just want to make a bunch of "work in progress" changes and clean up your commit history later, you can do that too!
+>
+> ```cli
+> git commit -m WIP --no-verify
+> ```
 
 ### Submitting your Pull Request
 
