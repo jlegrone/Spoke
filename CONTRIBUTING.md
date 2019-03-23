@@ -45,6 +45,35 @@ Generally, the first steps are:
 
 We follow the [conventional commits](https://www.conventionalcommits.org) specification for formatting commit messages. This allows us to automatically generate informative release notes and document breaking changes as they happen.
 
+<details>
+<summary>Examples</summary>
+<hr>
+
+Add a feature:
+```
+feat(pencil): add 'graphiteWidth' option
+```
+
+Fix a bug:
+```
+fix(graphite): stop graphite breaking when width < 0.1
+
+Closes #28
+```
+
+Improve performance with a breaking change:
+```
+perf(pencil): remove graphiteWidth option
+
+BREAKING CHANGE:
+The graphiteWidth option has been removed. The default
+graphite width of 10mm is always used for performance
+reasons.
+```
+
+<hr>
+</details>
+
 While commit messages can still be written by hand, a package script is also available for generating commit messages. To use it, stage the changes you wish to commit as you normally would, eg:
 
 ```cli
